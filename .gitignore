@@ -1,0 +1,4 @@
+%webAdvancedFeatured%Chat_App_Api
+server/node_modules
+server/db.txt
+.env
