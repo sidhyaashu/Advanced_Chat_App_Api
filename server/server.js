@@ -8,6 +8,7 @@ import morgan from "morgan";
 /**IMPORT FILES */
 import connectDB from "./config/db.js";
 import userRouter from "./router/userR.js"
+import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 /**CONFIGARATIONS */
 const app = express();
@@ -24,6 +25,11 @@ app.use(morgan("tiny"));
 
 /**END POINTS */
 app.use('/api/user',userRouter)
+
+
+/**Middleware for error handling */
+app.use(notFound)
+app.use(errorHandler)
 
 mongoose.connection.once("open", () => {
   app.listen(PORT, () => {
