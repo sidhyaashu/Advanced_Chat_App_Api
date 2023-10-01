@@ -9,6 +9,7 @@ import morgan from "morgan";
 import connectDB from "./config/db.js";
 import userRouter from "./router/userR.js"
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
+import chatRoutes from "./router/chatR.js";
 
 /**CONFIGARATIONS */
 const app = express();
@@ -25,7 +26,7 @@ app.use(morgan("tiny"));
 
 /**END POINTS */
 app.use('/api/user',userRouter)
-
+app.use('/api/chat',chatRoutes)
 
 /**Middleware for error handling */
 app.use(notFound)

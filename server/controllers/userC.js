@@ -65,6 +65,7 @@ const loginUser = async (req, res) => {
     }
 };
 
+/** Search user */
 const allUsers = async(req,res)=>{
   const keyWords = req.query.search ? {
     $or:[
